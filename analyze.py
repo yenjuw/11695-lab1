@@ -2,14 +2,15 @@ from azure.cognitiveservices.vision.computervision import ComputerVisionClient
 from msrest.authentication import CognitiveServicesCredentials
 from azure.cognitiveservices.vision.computervision.models import OperationStatusCodes
 import time
+import os
 
-endpoint = "ENTER ENDPOINT HERE"
-key = "ENTER KEY HERE"
+region = os.environ['ACCOUNT_REGION']
+key = os.environ['ACCOUNT_KEY']
 
 credentials = CognitiveServicesCredentials(key)
 
 client = ComputerVisionClient(
-    endpoint=endpoint,
+    endpoint="https://" + region + ".api.cognitive.microsoft.com/",
     credentials=credentials
 )
 
